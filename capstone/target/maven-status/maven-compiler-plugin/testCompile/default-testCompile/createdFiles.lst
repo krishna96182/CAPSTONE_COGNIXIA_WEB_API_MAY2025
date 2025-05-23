@@ -1,0 +1,10 @@
+config\ConfigReader.class
+tests\CombinedTest.class
+utils\TestConstants.class
+utils\Helper.class
+pages\CombinedPage.class
+pages\LoginPage.class
+tests\OptionalFunctionalityTest.class
+drivers\DriverFactory.class
+tests\BaseTest.class
+tests\LoginTest.class
