@@ -1,18 +1,18 @@
 # CAPSTONE_COGNIXIA_WEB_API_MAY2025
-# 🧪 Capstone Project – Full Stack Test Automation Suite
+# Capstone Project – Full Stack Test Automation Suite
 
 This repository contains the **Capstone Test Automation Project** for Cognixia’s QA Automation training. It demonstrates practical implementation of Selenium (UI testing), Postman + Newman (API testing), JMeter (performance testing), and JIRA (test management), integrated and version-controlled via GitHub.
 
 ---
 
-## 📁 Project Structure
+## Project Structure
 
 
 ---
 
-## ✅ 1. Selenium Web UI Test Automation (Java + TestNG)
+## 1. Selenium Web UI Test Automation (Java + TestNG)
 
-### 🔧 Features
+### Features
 - Functional test cases for:
   - Login
   - Form submission
@@ -27,7 +27,7 @@ This repository contains the **Capstone Test Automation Project** for Cognixia�
   - `testng.xml`
   - Maven: `mvn test` / `mvn clean install`
 
-### 🛠 Utility Functions (Optional)
+### Utility Functions (Optional)
 - `Helper.java` with:
   - `clickOnElementUsingJS(WebElement ele)`
   - `captureScreenshot(WebDriver driver, String fileName)`
@@ -36,14 +36,14 @@ This repository contains the **Capstone Test Automation Project** for Cognixia�
   - Window switching
   - JavaScript alerts
 
-### 🔗 Sample App Used:
+### Sample App Used:
 [https://demoqa.com/login](https://demoqa.com/login)
 
 ---
 
-## ✅ 2. API Automation with Postman and Newman
+## 2. API Automation with Postman and Newman
 
-### 🔧 Features
+### Features
 - Covered Methods:
   - `GET`, `POST`, `PUT`, `PATCH`, `DELETE`
 - Collection exported and executed with **Newman CLI**
@@ -53,7 +53,7 @@ This repository contains the **Capstone Test Automation Project** for Cognixia�
   - ✔ Response Time (e.g., `<2000ms`)
   - ✔ Response Headers (e.g., `Content-Type: application/json`)
 
-### 🖥 Execution
+### Execution
 ```bash
 # Basic
 newman run postman-api-tests/Collection.json
