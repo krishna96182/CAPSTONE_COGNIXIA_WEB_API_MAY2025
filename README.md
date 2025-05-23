@@ -60,3 +60,91 @@ newman run postman-api-tests/Collection.json
 
 # With HTML extra report
 newman run postman-api-tests/Collection.json -r htmlextra
+
+✅ 3. Performance Testing with Apache JMeter
+🔧 Test Plan Overview
+Targeted endpoints for load testing
+
+Virtual Users: 10
+
+Ramp-up Time: 1 second
+
+Loop Count: configurable
+
+Test Duration: 120 seconds
+
+Includes assertions on:
+
+Response time
+
+Success rate
+
+Error % thresholds
+
+🛠 Execution
+bash
+Copy
+Edit
+# Headless execution with HTML report generation
+jmeter -n -t jmeter-performance-tests/TestPlan.jmx -l test-results/results.jtl -e -o test-results/html-report
+📈 Output
+.jmx test plan
+
+.jtl log results
+
+html-report/ with visual graphs and statistics
+
+✅ 4. Test Management with JIRA
+📌 JIRA Workflow
+Test lifecycle tracked via JIRA Agile Board:
+
+Backlog → To Do → In Progress → Done
+
+Linked test cases and bugs for:
+
+UI tests
+
+API validations
+
+Performance KPIs
+
+🧾 Dashboard Includes
+Sprint summaries
+
+Defect trends
+
+Test execution status (via Zephyr or Xray)
+
+Linked screenshots and logs for failed tests
+
+📸 Evidence Tracked in JIRA
+Attachments:
+
+Selenium screenshots (PNG)
+
+Newman HTML reports
+
+JMeter summary reports
+
+GitHub commit links
+
+🚀 How to Run the Entire Suite
+bash
+Copy
+Edit
+# UI Tests
+mvn clean install
+
+# API Tests
+newman run postman-api-tests/Collection.json -r htmlextra
+
+# JMeter Performance Tests
+jmeter -n -t jmeter-performance-tests/TestPlan.jmx -l test-results/results.jtl -e -o test-results/html-report
+🧰 Tools & Technologies
+Area	Tools Used
+UI Automation	Selenium, TestNG, Log4j, Maven
+API Testing	Postman, Newman
+Performance Testing	Apache JMeter
+Test Management	JIRA, Zephyr/Xray
+CI/CD & Reporting	GitHub, HTML Reports
+Language	Java
