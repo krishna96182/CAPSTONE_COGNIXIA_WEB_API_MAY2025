@@ -1,0 +1,129 @@
+Started by user krishna vamsi
+Running as SYSTEM
+Building in workspace C:\Users\krishna.gangisetty\eclipse-workspace\capstone
+[capstone] $ cmd /c call C:\Users\KRISHN~1.GAN\AppData\Local\Temp\jenkins11458508326139879185.bat
+
+C:\Users\krishna.gangisetty\eclipse-workspace\capstone>mvn clean install 
+[INFO] Scanning for projects...
+[WARNING] 
+[WARNING] Some problems were encountered while building the effective model for com.learning:capstone:jar:0.0.1-SNAPSHOT
+[WARNING] 'build.plugins.plugin.version' for org.apache.maven.plugins:maven-compiler-plugin is missing. @ line 20, column 12
+[WARNING] 
+[WARNING] It is highly recommended to fix these problems because they threaten the stability of your build.
+[WARNING] 
+[WARNING] For this reason, future Maven versions might no longer support building such malformed projects.
+[WARNING] 
+[INFO] 
+[INFO] -----------------------< com.learning:capstone >------------------------
+[INFO] Building capstone 0.0.1-SNAPSHOT
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- clean:3.2.0:clean (default-clean) @ capstone ---
+[INFO] Deleting C:\Users\krishna.gangisetty\eclipse-workspace\capstone\target
+[INFO] 
+[INFO] --- resources:3.3.1:resources (default-resources) @ capstone ---
+[INFO] skip non existing resourceDirectory C:\Users\krishna.gangisetty\eclipse-workspace\capstone\src\main\resources
+[INFO] 
+[INFO] --- compiler:3.13.0:compile (default-compile) @ capstone ---
+[INFO] Recompiling the module because of changed source code.
+[INFO] Compiling 1 source file with javac [debug target 1.8] to target\classes
+[WARNING] bootstrap class path not set in conjunction with -source 8
+[INFO] 
+[INFO] --- resources:3.3.1:testResources (default-testResources) @ capstone ---
+[INFO] skip non existing resourceDirectory C:\Users\krishna.gangisetty\eclipse-workspace\capstone\src\test\resources
+[INFO] 
+[INFO] --- compiler:3.13.0:testCompile (default-testCompile) @ capstone ---
+[INFO] Recompiling the module because of changed dependency.
+[INFO] Compiling 10 source files with javac [debug target 1.8] to target\test-classes
+[WARNING] bootstrap class path not set in conjunction with -source 8
+[INFO] 
+[INFO] --- surefire:2.18.1:test (default-test) @ capstone ---
+[INFO] Surefire report directory: C:\Users\krishna.gangisetty\eclipse-workspace\capstone\target\surefire-reports
+
+-------------------------------------------------------
+ T E S T S
+-------------------------------------------------------
+Running TestSuite
+[TestNGContentHandler] [WARN] It is strongly recommended to add "<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd" >" at the top of your file, otherwise TestNG may fail or not work as expected.
+May 23, 2025 6:00:24 PM org.openqa.selenium.devtools.CdpVersionFinder findNearestMatch
+WARNING: Unable to find an exact match for CDP version 136, returning the closest version; found: 134; Please update to a Selenium version that supports CDP version 136
+ INFO [main] (LoginTest.java:20)- Navigating to login page
+ INFO [main] (LoginTest.java:26)- Attempting to log in with valid credentials
+ INFO [main] (LoginTest.java:30)- Validating successful login
+ INFO [main] (LoginTest.java:35)- Login test passed
+May 23, 2025 6:00:59 PM org.openqa.selenium.devtools.CdpVersionFinder findNearestMatch
+WARNING: Unable to find an exact match for CDP version 136, returning the closest version; found: 134; Please update to a Selenium version that supports CDP version 136
+ INFO [main] (LoginTest.java:40)- Navigating to login page
+ INFO [main] (LoginTest.java:46)- Attempting login with invalid username
+ INFO [main] (LoginTest.java:53)- Error message: Invalid username or password!
+ INFO [main] (LoginTest.java:57)- Invalid username test passed
+May 23, 2025 6:01:26 PM org.openqa.selenium.devtools.CdpVersionFinder findNearestMatch
+WARNING: Unable to find an exact match for CDP version 136, returning the closest version; found: 134; Please update to a Selenium version that supports CDP version 136
+ INFO [main] (LoginTest.java:62)- Navigating to login page
+ INFO [main] (LoginTest.java:68)- Attempting login with invalid password
+ INFO [main] (LoginTest.java:75)- Error message: Invalid username or password!
+ INFO [main] (LoginTest.java:79)- Invalid password test passed
+May 23, 2025 6:01:52 PM org.openqa.selenium.devtools.CdpVersionFinder findNearestMatch
+WARNING: Unable to find an exact match for CDP version 136, returning the closest version; found: 134; Please update to a Selenium version that supports CDP version 136
+ INFO [main] (CombinedTest.java:21)- Navigating to form page
+ INFO [main] (CombinedTest.java:26)- Filling form with valid data
+ INFO [main] (CombinedTest.java:30)- Validating form submission
+ INFO [main] (CombinedTest.java:32)- Form submission test passed
+May 23, 2025 6:02:11 PM org.openqa.selenium.devtools.CdpVersionFinder findNearestMatch
+WARNING: Unable to find an exact match for CDP version 136, returning the closest version; found: 134; Please update to a Selenium version that supports CDP version 136
+ INFO [main] (CombinedTest.java:37)- Navigating to form page
+ INFO [main] (CombinedTest.java:42)- Filling form with invalid email
+ INFO [main] (CombinedTest.java:58)- Negative form test passed
+May 23, 2025 6:02:36 PM org.openqa.selenium.devtools.CdpVersionFinder findNearestMatch
+WARNING: Unable to find an exact match for CDP version 136, returning the closest version; found: 134; Please update to a Selenium version that supports CDP version 136
+ INFO [main] (CombinedTest.java:63)- Navigating to Web Tables page
+ INFO [main] (CombinedTest.java:68)- Performing search for 'Cierra'
+ INFO [main] (CombinedTest.java:73)- Validating search result
+ INFO [main] (CombinedTest.java:76)- Search test passed
+May 23, 2025 6:02:56 PM org.openqa.selenium.devtools.CdpVersionFinder findNearestMatch
+WARNING: Unable to find an exact match for CDP version 136, returning the closest version; found: 134; Please update to a Selenium version that supports CDP version 136
+ INFO [main] (CombinedTest.java:81)- Navigating to Web Tables page
+ INFO [main] (CombinedTest.java:86)- Performing search for 'UnknownName'
+ INFO [main] (CombinedTest.java:91)- Validating that no result is shown
+ INFO [main] (CombinedTest.java:94)- Negative search test passed
+May 23, 2025 6:03:13 PM org.openqa.selenium.devtools.CdpVersionFinder findNearestMatch
+WARNING: Unable to find an exact match for CDP version 136, returning the closest version; found: 134; Please update to a Selenium version that supports CDP version 136
+ INFO [main] (OptionalFunctionalityTest.java:28)- Navigating to actions page
+ INFO [main] (OptionalFunctionalityTest.java:37)- Hovered over Main Item 2
+ INFO [main] (OptionalFunctionalityTest.java:40)- ActionExample test passed
+May 23, 2025 6:03:37 PM org.openqa.selenium.devtools.CdpVersionFinder findNearestMatch
+WARNING: Unable to find an exact match for CDP version 136, returning the closest version; found: 134; Please update to a Selenium version that supports CDP version 136
+ INFO [main] (OptionalFunctionalityTest.java:45)- Navigating to iframe page
+ INFO [main] (OptionalFunctionalityTest.java:54)- IFrame text: This is a sample page
+ INFO [main] (OptionalFunctionalityTest.java:58)- IFrameExample test passed
+May 23, 2025 6:03:56 PM org.openqa.selenium.devtools.CdpVersionFinder findNearestMatch
+WARNING: Unable to find an exact match for CDP version 136, returning the closest version; found: 134; Please update to a Selenium version that supports CDP version 136
+ INFO [main] (OptionalFunctionalityTest.java:63)- Navigating to browser windows page
+ INFO [main] (OptionalFunctionalityTest.java:85)- New Window Text: This is a sample page
+ INFO [main] (OptionalFunctionalityTest.java:94)- WindowsExample test passed
+May 23, 2025 6:04:27 PM org.openqa.selenium.devtools.CdpVersionFinder findNearestMatch
+WARNING: Unable to find an exact match for CDP version 136, returning the closest version; found: 134; Please update to a Selenium version that supports CDP version 136
+ INFO [main] (OptionalFunctionalityTest.java:99)- Navigating to alerts page
+ INFO [main] (OptionalFunctionalityTest.java:109)- Alert text: You clicked a button
+ INFO [main] (OptionalFunctionalityTest.java:113)- AlertExample test passed
+Tests run: 11, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 270.897 sec - in TestSuite
+
+Results :
+
+Tests run: 11, Failures: 0, Errors: 0, Skipped: 0
+
+[INFO] 
+[INFO] --- jar:3.4.1:jar (default-jar) @ capstone ---
+[INFO] Building jar: C:\Users\krishna.gangisetty\eclipse-workspace\capstone\target\capstone-0.0.1-SNAPSHOT.jar
+[INFO] 
+[INFO] --- install:3.1.2:install (default-install) @ capstone ---
+[INFO] Installing C:\Users\krishna.gangisetty\eclipse-workspace\capstone\pom.xml to C:\Users\krishna.gangisetty\.m2\repository\com\learning\capstone\0.0.1-SNAPSHOT\capstone-0.0.1-SNAPSHOT.pom
+[INFO] Installing C:\Users\krishna.gangisetty\eclipse-workspace\capstone\target\capstone-0.0.1-SNAPSHOT.jar to C:\Users\krishna.gangisetty\.m2\repository\com\learning\capstone\0.0.1-SNAPSHOT\capstone-0.0.1-SNAPSHOT.jar
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  04:54 min
+[INFO] Finished at: 2025-05-23T18:04:50+05:30
+[INFO] ------------------------------------------------------------------------
+Finished: SUCCESS
