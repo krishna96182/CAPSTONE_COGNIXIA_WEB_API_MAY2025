@@ -1,0 +1,10 @@
+Started by user krishna vamsi
+Running as SYSTEM
+Building in workspace C:\Users\krishna.gangisetty\.jenkins\workspace\capstone-Postman
+[capstone-Postman] $ cmd /c call C:\Users\KRISHN~1.GAN\AppData\Local\Temp\jenkins1373445152523629871.bat
+
+C:\Users\krishna.gangisetty\.jenkins\workspace\capstone-Postman>cd "C:\Users\krishna.gangisetty\OneDrive - ascendion\Desktop\hp training\capstone\Postman" 
+
+C:\Users\krishna.gangisetty\OneDrive - ascendion\Desktop\hp training\capstone\Postman>call postman.bat 
+Running Newman Tests...
+Finished: SUCCESS

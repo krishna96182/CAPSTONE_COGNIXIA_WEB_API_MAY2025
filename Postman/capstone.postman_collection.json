@@ -1,0 +1,390 @@
+{
+	"info": {
+		"_postman_id": "e79915ee-1bf7-40de-a9b0-fa0654a424da",
+		"name": "capstone",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "37293777"
+	},
+	"item": [
+		{
+			"name": "GET_All_Objects",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Body matches string\", function () {\r",
+							"    pm.expect(pm.response.text()).to.include(\"Cloudy White\");\r",
+							"    pm.expect(pm.response.text()).to.include(\"Google Pixel 6 Pro\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Response time is less than 2000ms\", function () {\r",
+							"    pm.expect(pm.response.responseTime).to.be.below(2000);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Content-Type is present\", function () {\r",
+							"    pm.response.to.have.header(\"Content-Type\");\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/objects",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"objects"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "POST_User",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", () => pm.response.to.have.status(200));\r",
+							"pm.test(\"Save ID to environment\", () => {\r",
+							"    const jsonData = pm.response.json();\r",
+							"    pm.environment.set(\"objectId\", jsonData.id);\r",
+							"    console.log(\"Saved ID:\", jsonData.id);\r",
+							"});\r",
+							"pm.test(\"Response time is < 2000ms\", () => pm.expect(pm.response.responseTime).to.be.below(2000));\r",
+							"\r",
+							"pm.test(\"Content-Type is present\", function () {\r",
+							"    pm.response.to.have.header(\"Content-Type\");\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"name\": \"{{deviceName}}\",\r\n  \"data\": {\r\n    \"year\": \"{{deviceYear}}\",\r\n    \"color\": \"{{deviceColor}}\",\r\n    \"price\": {{devicePrice}}\r\n  }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/objects",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"objects"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "PUT_Object",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"if (pm.response.code === 200) {\r",
+							"  pm.test(\"Status code is 200\", () => {\r",
+							"    pm.response.to.have.status(200);\r",
+							"  });\r",
+							"\r",
+							"  pm.test(\"Body contains expected data\", () => {\r",
+							"    const deviceName = pm.collectionVariables.get(\"updateName\");\r",
+							"    pm.expect(pm.response.text()).to.include(deviceName);\r",
+							"  });\r",
+							"\r",
+							"  pm.test(\"Response time < 2000ms\", () => {\r",
+							"    pm.expect(pm.response.responseTime).to.be.below(2000);\r",
+							"  });\r",
+							"\r",
+							"  pm.test(\"Content-Type is JSON\", () => {\r",
+							"    pm.response.to.have.header(\"Content-Type\");\r",
+							"  });\r",
+							"\r",
+							"  const responseJson = pm.response.json();\r",
+							"  const id = responseJson.id;\r",
+							"  if (id) {\r",
+							"    pm.environment.set(\"objectId\", id);\r",
+							"  }\r",
+							"}\r",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyTmFtZSI6ImtyaXNobmEiLCJwYXNzd29yZCI6IktyaXNobmExMjNAIiwiaWF0IjoxNzQ3ODIwNzQ5fQ.IE_CIX1bvR_IcH7oyOcYb8Fq7CbFQ1k3z5tSHfHxn44",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"name\": \"{{updateName}}\",\r\n  \"data\": {\r\n    \"year\": {{updateYear}},\r\n    \"color\": \"{{updateColor}}\",\r\n    \"price\": {{updatePrice}}\r\n  }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/objects/{{objectId}}",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"objects",
+						"{{objectId}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET_Single_Object",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"if (pm.response.code === 200) {\r",
+							"  pm.test(\"Status code is 200\", () => pm.response.to.have.status(200));\r",
+							"  pm.test(\"Body contains expected data\", () => {\r",
+							"    pm.expect(pm.response.text()).to.include(pm.collectionVariables.get(\"updateName\"));\r",
+							"  });\r",
+							"  pm.test(\"Response time < 2000ms\", () => pm.expect(pm.response.responseTime).to.be.below(2000));\r",
+							"  pm.test(\"Content-Type is JSON\", () => {\r",
+							"    pm.response.to.have.header(\"Content-Type\");\r",
+							"  });\r",
+							"  const id = pm.response.json().id;\r",
+							"  if (id) pm.environment.set(\"objectId\", id);\r",
+							"}"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/objects/{{objectId}}",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"objects",
+						"{{objectId}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "PATCH_Object",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"if (pm.response.code === 200) {\r",
+							"  pm.test(\"Status code is 200\", () => {\r",
+							"    pm.response.to.have.status(200);\r",
+							"  });\r",
+							"\r",
+							"  pm.test(\"Body contains expected data\", () => {\r",
+							"    const deviceName = pm.collectionVariables.get(\"updatedColor\");\r",
+							"    pm.expect(pm.response.text()).to.include(deviceName);\r",
+							"  });\r",
+							"\r",
+							"  pm.test(\"Response time < 2000ms\", () => {\r",
+							"    pm.expect(pm.response.responseTime).to.be.below(2000);\r",
+							"  });\r",
+							"\r",
+							"  pm.test(\"Content-Type is JSON\", () => {\r",
+							"    pm.response.to.have.header(\"Content-Type\");\r",
+							"  });\r",
+							"\r",
+							"  const responseJson = pm.response.json();\r",
+							"  const id = responseJson.id;\r",
+							"  if (id) {\r",
+							"    pm.environment.set(\"objectId\", id);\r",
+							"  }\r",
+							"}\r",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"data\": {\r\n    \"color\": \"{{updatedColor}}\"\r\n  }\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/objects/{{objectId}}",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"objects",
+						"{{objectId}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "DELETE_Object",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Response time is less than 2000ms\", function () {\r",
+							"    pm.expect(pm.response.responseTime).to.be.below(2000);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Content-Type is present\", function () {\r",
+							"    pm.response.to.have.header(\"Content-Type\");\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/objects/{{objectId}}",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"objects",
+						"{{objectId}}"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "deviceName",
+			"value": "Oppo f21 pro",
+			"type": "string"
+		},
+		{
+			"key": "deviceColor",
+			"value": "Sliver",
+			"type": "string"
+		},
+		{
+			"key": "deviceYear",
+			"value": "2020",
+			"type": "string"
+		},
+		{
+			"key": "devicePrice",
+			"value": "699",
+			"type": "string"
+		},
+		{
+			"key": "updateName",
+			"value": "Oppo f23 pro",
+			"type": "string"
+		},
+		{
+			"key": "updateColor",
+			"value": "black",
+			"type": "string"
+		},
+		{
+			"key": "updateYear",
+			"value": "2023",
+			"type": "string"
+		},
+		{
+			"key": "updatePrice",
+			"value": "800",
+			"type": "string"
+		},
+		{
+			"key": "updatedColor",
+			"value": "white",
+			"type": "string"
+		}
+	]
+}
