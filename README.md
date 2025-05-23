@@ -61,3 +61,24 @@ newman run postman-api-tests/Collection.json
 # With HTML extra report
 newman run postman-api-tests/Collection.json -r htmlextra
 
+###3. Performance Testing with Apache JMeter
+
+#### 🔧 Test Plan Overview
+- **Tool:** Apache JMeter  
+- **Targeted Endpoints:** Configurable via `.jmx` file  
+- **Virtual Users (Threads):** 10  
+- **Ramp-up Time:** 1 second  
+- **Loop Count:** Configurable in test plan  
+- **Duration:** 120 seconds  
+
+#### ✅ Assertions Included
+- **Response Time:** Within expected SLA (e.g., < 2000ms)  
+- **Success Rate:** 100%  
+- **Error % Thresholds:** < 1%  
+
+#### 🛠 Execution Command
+```bash
+# Headless execution with HTML report generation
+jmeter -n -t jmeter-performance-tests/TestPlan.jmx -l test-results/results.jtl -e -o test-results/html-report
+
+
